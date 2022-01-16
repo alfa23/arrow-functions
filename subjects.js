@@ -19,18 +19,17 @@ let students = [
     }
 ];
 
-// const averagePoints = (arr, subject) => {
-//     if students.results.includes(subject);
-//         let sumMarks = 0;
-//         for (let i = 0; i < subjects.length; i++) {
-//             console.log(subjects[i]);    
-//             sumMarks +=  arr[i].results.subject;
-//         }
-//     return sumMarks / arr.length;
-//  }
-//  let result = averagePoints(students,"english");
-//  console.log(result);
-console.log(students);
-for (let i =0; i < students.length; i++) {
-    console.log(students.results);
-}
+const averagePoints = (arr, subject) => {
+    let sumMarks = 0;
+    let matchedTally = 0
+    for (let student of arr) {
+        if (student.subjects.includes(subject)) {
+            sumMarks +=  student.results[subject];
+            matchedTally++;
+        }    
+        
+    }
+    return sumMarks / matchedTally;
+ }
+ let result = averagePoints(students, "english");
+ console.log(result);
